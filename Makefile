@@ -1,6 +1,6 @@
 CFLAGS = -O0 -ggdb -g3 -DGTPDUMP_DEBUG
 CXXFLAGS = -O0 -ggdb -g3 -DGTPDUMP_DEBUG
-LINK=-lpcap -lstdc++
+LINK=-lpcap -lstdc++ 
 
 all:gtp.o gtp_session.o main.o opt.o
 	$(CC) gtp.o gtp_session.o opt.o main.o -o gtpdump $(CFLAGS) $(LINK)
