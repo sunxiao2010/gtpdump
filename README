@@ -1,6 +1,5 @@
 说明：
-这个软件是在ggsn的gn口/sgw的s口获取交互数据的，
-报文的记录以一次请求和应答为单位，记录那些指定的报文。
+仅获取和过滤port 2123的gtp报文，且过滤是以gtp的一个完整请求和应答为单元进行分析记录的
 
 输入：在命令的参数中指定网卡，如gtpdump -i eth0
 输出：目录下的dump.pcap文件
@@ -19,3 +18,7 @@ msisdn                   --手机号
 使用举例
 gtpdump -i eth0 v2c seq 000092
 gtpdump -i eth0 msisdn 8618610001000
+
+现在软件支持的报文类型还较少，
+现可以对gtpv2的create-session-request和create-session-response做过滤
+有问题请留言
