@@ -1,9 +1,31 @@
-说明：
+Only gtp packets as "port 2123" are captured and filtered.
+Based on libpcap.
+Input: NIC you specified, use as "gtpdump -i eth0"
+Output: ./dump.pcap
+Defaults: gtp-c v2 protocol
+You can specify the following segments:
+ v1/v2                    --version
+ c/u                      --gtpu/gtpc
+and these(below) should be input by hex mode and precise length:
+ seq                      --sequence number
+ teid                     --teid in gtp header
+ imsi                     --IMSI
+ imei                     --IMEI
+ msisdn                   --MSISDN
+
+Use as:
+gtpdump -i eth0 v2c seq 000092
+gtpdump -i eth0 msisdn 8618610001000
+
+now create-session-request & create-session-response are supported
+
+----------------------------------
+说明，用世界上最好的语言:
 仅获取和过滤port 2123的gtp报文，且过滤是以gtp的一个完整请求和应答为单元进行分析记录的
 
 输入：在命令的参数中指定网卡，如gtpdump -i eth0
 输出：目录下的dump.pcap文件
-默认配置：获取gtp-c v2版本的全部报文
+默认配置：获取gtp-c v2版本的报文
 
 可指定的过滤字段：
 v1/v2                    --指定协议版本
