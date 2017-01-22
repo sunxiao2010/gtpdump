@@ -1,0 +1,21 @@
+说明：
+这个软件获取的是在ggsn的gn口/sgw的s口获取交互数据的，
+报文的记录以一次请求和应答为单位，记录那些指定的报文。
+
+输入：在命令的参数中指定网卡，如gtpdump -i eth0
+输出：目录下的dump.pcap文件
+默认配置：
+获取gtp-c v2版本的全部报文
+可指定的过滤字段：
+v1/v2                    --指定协议版本
+c/u                      --指定是gtpu还是gtpc
+以下字段需要以16进制定长填入：
+seq                      --顺序号
+teid                     --gtp协议头中的teid字段
+imsi                     --IMSI
+imei                     --IMEI
+msisdn                   --手机号
+
+使用时填入
+gtpdump -i eth0 v2c seq 000092
+gtpdump -i eth0 msisdn 8618610001000
